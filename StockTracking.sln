@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTracking.UI", "StockTracking.UI\StockTracking.UI.csproj", "{A8A3C9C2-F784-485F-A395-B0FEABA4F964}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTracking.Core", "StockTracking.Core\StockTracking.Core.csproj", "{7251D9DB-253F-4722-90E1-D951D6E55410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTracking.Model", "StockTracking.Model\StockTracking.Model.csproj", "{586EFEF3-E7A1-4DB1-B404-8AE80A9F1625}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A8A3C9C2-F784-485F-A395-B0FEABA4F964}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8A3C9C2-F784-485F-A395-B0FEABA4F964}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8A3C9C2-F784-485F-A395-B0FEABA4F964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7251D9DB-253F-4722-90E1-D951D6E55410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7251D9DB-253F-4722-90E1-D951D6E55410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7251D9DB-253F-4722-90E1-D951D6E55410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7251D9DB-253F-4722-90E1-D951D6E55410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{586EFEF3-E7A1-4DB1-B404-8AE80A9F1625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{586EFEF3-E7A1-4DB1-B404-8AE80A9F1625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{586EFEF3-E7A1-4DB1-B404-8AE80A9F1625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{586EFEF3-E7A1-4DB1-B404-8AE80A9F1625}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

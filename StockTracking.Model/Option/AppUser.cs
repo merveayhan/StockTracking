@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace StockTracking.Model.Option
 {
+    public enum Role
+    {
+        None = 0,
+        Admin = 1,
+        Member = 2
+    }
     public class AppUser:CoreEntity
     {
         public string FirstName { get; set; }
@@ -15,7 +21,7 @@ namespace StockTracking.Model.Option
         public string Password { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
-
+        public Role Role { get; set; }
         public string UserImage { get; set; }
         public string XSmallUserImage { get; set; }
         public string CruptedUserImage { get; set; }

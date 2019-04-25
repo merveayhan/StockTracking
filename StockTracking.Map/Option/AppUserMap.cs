@@ -19,6 +19,7 @@ namespace StockTracking.Map.Option
             Property(x => x.Password).HasMaxLength(50).IsRequired();
             Property(x => x.Address).HasMaxLength(150).IsRequired();
             Property(x => x.PhoneNumber).HasMaxLength(50).IsRequired();
+            Property(x => x.Role).IsOptional();
             Property(x => x.UserImage).IsRequired();
             Property(x => x.XSmallUserImage).IsRequired();
             Property(x => x.CruptedUserImage).IsRequired();

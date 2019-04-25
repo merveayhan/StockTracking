@@ -25,6 +25,7 @@ namespace StockTracking.DAL.Context
             modelBuilder.Configurations.Add(new AppUserMap());
             modelBuilder.Configurations.Add(new ProductMap());
             modelBuilder.Configurations.Add(new CategoryMap());
+            modelBuilder.Configurations.Add(new SaleMap());
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
@@ -34,6 +35,7 @@ namespace StockTracking.DAL.Context
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Sale> Sales { get; set; }
 
         public override int SaveChanges()
         {

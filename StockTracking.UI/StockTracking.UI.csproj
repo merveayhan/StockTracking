@@ -94,6 +94,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Css\AdminLTE.min.css" />
+    <Content Include="Content\Css\bootstrap.min.css" />
+    <Content Include="Content\Css\font-awesome.min.css" />
+    <Content Include="Content\Css\ionicons.min.css" />
+    <Content Include="Content\Css\_all-skins.min.css" />
+    <Content Include="Content\Fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Fonts\ionicons.svg" />
+    <Content Include="Content\Images\userlogo.jpg" />
+    <Content Include="Content\Scripts\adminlte.min.js" />
+    <Content Include="Content\Scripts\bootstrap.min.js" />
+    <Content Include="Content\Scripts\demo.js" />
+    <Content Include="Content\Scripts\fastclick.js" />
+    <Content Include="Content\Scripts\jquery.min.js" />
+    <Content Include="Content\Scripts\jquery.slimscroll.min.js" />
+    <Content Include="Content\Uploads\UserImages\CruptedImages\userlogo.jpg" />
+    <Content Include="Content\Uploads\UserImages\OriginalImages\userlogo.jpg" />
+    <Content Include="Content\Uploads\UserImages\XSmallImages\userlogo.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -110,6 +128,21 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\AdminLayoutPage.cshtml" />
+    <Content Include="Content\Fonts\ionicons.eot" />
+    <Content Include="Content\Fonts\ionicons.ttf" />
+    <Content Include="Content\Fonts\ionicons.woff" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\AppUser\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\AppUser\List.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -120,10 +153,26 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\AppUser\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StockTracking.Core\StockTracking.Core.csproj">
+      <Project>{7251D9DB-253F-4722-90E1-D951D6E55410}</Project>
+      <Name>StockTracking.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StockTracking.Model\StockTracking.Model.csproj">
+      <Project>{586EFEF3-E7A1-4DB1-B404-8AE80A9F1625}</Project>
+      <Name>StockTracking.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StockTracking.Service\StockTracking.Service.csproj">
+      <Project>{FC9497B5-91ED-4B8A-95CD-D65FE8BA0193}</Project>
+      <Name>StockTracking.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StockTracking.Utility\StockTracking.Utility.csproj">
+      <Project>{6472B527-D0C8-4EEB-A63C-DFB2353C37C4}</Project>
+      <Name>StockTracking.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

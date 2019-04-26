@@ -23,12 +23,12 @@ namespace StockTracking.Service.Option
 
         public AppUser FindByUserNameOrEmail(string user)
         {
-            return GetFirstOrDefault(x => (x.UserName == user) && x.Status != Status.Deleted);
+            return GetFirstOrDefault(x =>x.UserName == user && x.Status != Status.Deleted);
         }
 
         public bool CheckCredentialsFromWebSerice(string user, string password)
         {
-            return Any(x => (x.UserName == user) && (x.Password == password && x.Status != Status.Deleted));
+            return Any(x =>x.UserName == user && (x.Password == password && x.Status != Status.Deleted));
         }
     }
 }

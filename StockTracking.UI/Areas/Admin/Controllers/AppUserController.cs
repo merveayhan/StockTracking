@@ -24,7 +24,6 @@ namespace StockTracking.UI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-       // [UserAuthorize(Role.Admin)]
         public ActionResult Add(AppUser data, HttpPostedFileBase Image)
         {
             List<string> UploadedImagePaths = new List<string>();

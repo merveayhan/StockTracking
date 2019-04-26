@@ -13,16 +13,17 @@ namespace StockTracking.Map.Option
         public AppUserMap()
         {
             ToTable("dbo.Users");
-            Property(x => x.FirstName).HasMaxLength(50).IsRequired();
-            Property(x => x.LastName).HasMaxLength(50).IsRequired();
+            Property(x => x.FirstName).HasMaxLength(50).IsOptional();
+            Property(x => x.LastName).HasMaxLength(50).IsOptional();
             Property(x => x.UserName).HasMaxLength(50).IsRequired();
             Property(x => x.Password).HasMaxLength(50).IsRequired();
-            Property(x => x.Address).HasMaxLength(150).IsRequired();
-            Property(x => x.PhoneNumber).HasMaxLength(50).IsRequired();
+            Property(x => x.Address).HasMaxLength(150).IsOptional();
+            Property(x => x.PhoneNumber).HasMaxLength(50).IsOptional();
             Property(x => x.Role).IsOptional();
-            Property(x => x.UserImage).IsRequired();
-            Property(x => x.XSmallUserImage).IsRequired();
-            Property(x => x.CruptedUserImage).IsRequired();
+            Property(x => x.ImagePath).IsOptional();
+            Property(x => x.UserImage).IsOptional();
+            Property(x => x.XSmallUserImage).IsOptional();
+            Property(x => x.CruptedUserImage).IsOptional();
 
             HasMany(x => x.Sales).WithRequired(x => x.AppUser).HasForeignKey(x => x.AppUserID);
 

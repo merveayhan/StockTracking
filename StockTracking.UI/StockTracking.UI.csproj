@@ -119,7 +119,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AppUserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Models\DTO\AppUserDTO.cs" />
+    <Compile Include="Areas\Admin\Models\DTO\CategoryDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -144,6 +146,9 @@
     <Content Include="Areas\Admin\Views\AppUser\Add.cshtml" />
     <Content Include="Areas\Admin\Views\AppUser\List.cshtml" />
     <Content Include="Areas\Admin\Views\AppUser\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Update.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

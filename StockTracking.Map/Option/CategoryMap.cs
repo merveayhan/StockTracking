@@ -13,8 +13,8 @@ namespace StockTracking.Map.Option
         public CategoryMap()
         {
             ToTable("dbo.Categories");
-            Property(x => x.CategoryName).IsRequired();
-            Property(x => x.Description).IsRequired();
+            Property(x => x.CategoryName).IsOptional();
+            Property(x => x.Description).IsOptional();
 
             HasMany(x => x.Products).WithRequired(x => x.Category).HasForeignKey(x => x.CategoryID);
         }

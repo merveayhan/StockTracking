@@ -1,5 +1,6 @@
 ﻿using StockTracking.Model.Option;
 using StockTracking.Service.Option;
+using StockTracking.UI.Areas.Admin.Models.DTO;
 using StockTracking.Utility;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,80 @@ namespace StockTracking.UI.Areas.Admin.Controllers
             return View(model);
         }
 
+        public ActionResult Update(Guid id)
+        {
 
+            AppUser user = _appUserService.GetByID(id);
+
+            AppUserDTO model = new AppUserDTO();
+
+            model.ID = user.ID;
+            model.FirstName = user.FirstName;
+            model.LastName = user.LastName;
+            model.UserName = user.UserName;
+            model.Password = user.Password;
+            model.Address = user.Address;
+            model.PhoneNumber = user.PhoneNumber;
+            model.UserImage = user.UserImage;
+            model.XSmallUserImage = user.XSmallUserImage;
+            model.CruptedUserImage = user.CruptedUserImage;
+            model.Role = user.Role;
+
+            return View(model);
+
+        }
+
+        [HttpPost]
+        public ActionResult Update(AppUserDTO data, HttpPostedFileBase Image)
+        {
+
+            List<string> UploadedImagePaths = new List<string>();
+
+            UploadedImagePaths = ImageUploader.UploadSingleImage(ImageUploader.OriginalProfileImagePath, Image, 1);
+
+            data.UserImage = UploadedImagePaths[0];
+
+
+            AppUser update = _appUserService.GetByID(data.ID);
+
+            if (data.UserImage == "0" || data.UserImage == "1" || data.UserImage == "2")
+            {
+
+                if (update.UserImage == null || update.UserImage == ImageUploader.DefaultProfileImagePath)
+                {
+                    update.UserImage = ImageUploader.DefaultProfileImagePath;
+                    update.XSmallUserImage = ImageUploader.DefaultXSmallProfileImage;
+                    update.CruptedUserImage = ImageUploader.DefaulCruptedProfileImage;
+                }
+                else
+                {
+                    update.UserImage = update.UserImage;
+                    update.XSmallUserImage = update.XSmallUserImage;
+                    update.CruptedUserImage = update.CruptedUserImage;
+                }
+
+            }
+            else
+            {
+                update.UserImage = UploadedImagePaths[0];
+                update.XSmallUserImage = UploadedImagePaths[1];
+                update.CruptedUserImage = UploadedImagePaths[2];
+            }
+
+            update.FirstName = data.FirstName;
+            update.LastName = data.LastName;
+            update.UserName = data.UserName;
+            update.Password = data.Password;
+            update.Address = data.Address;
+            update.PhoneNumber = data.PhoneNumber;
+            update.Role = data.Role;
+            update.ImagePath = data.ImagePath;
+            _appUserService.Update(update);
+
+            return Redirect("/Admin/AppUser/List");
+
+
+        }
         public RedirectResult Delete(Guid id)
         {
             _appUserService.Remove(id);

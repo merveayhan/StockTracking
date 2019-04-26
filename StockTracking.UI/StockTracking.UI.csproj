@@ -143,6 +143,7 @@
     <Content Include="Content\Fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\AppUser\Add.cshtml" />
     <Content Include="Areas\Admin\Views\AppUser\List.cshtml" />
+    <Content Include="Areas\Admin\Views\AppUser\Update.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

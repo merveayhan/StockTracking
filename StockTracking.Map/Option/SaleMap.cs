@@ -13,20 +13,12 @@ namespace StockTracking.Map.Option
         public SaleMap()
         {
             ToTable("dbo.Sales");
-            Property(x => x.Quantity).IsRequired();
-            Property(x => x.Date).IsRequired();
-            Property(x => x.Discount).IsRequired();
+            Property(x => x.Quantity).IsOptional();
+            Property(x => x.Date).IsOptional();
+            Property(x => x.Discount).IsOptional();          
 
-
-            HasRequired(x => x.Product)
-              .WithMany(x => x.Sales)
-              .HasForeignKey(x => x.ProductID)
-              .WillCascadeOnDelete(true);//katerorisi silinirse ürün silinsin
-
-            HasRequired(x => x.AppUser)
-              .WithMany(x => x.Sales)
-              .HasForeignKey(x => x.AppUserID)
-              .WillCascadeOnDelete(true);//katerorisi silinirse ürün silinsin
+            //HasMany(x => x.AppUsers).WithRequired(x => x.Sale).HasForeignKey(x => x.SaleID);
+            //HasMany(x => x.Products).WithRequired(x => x.Sale).HasForeignKey(x => x.SaleID);
         }
     }
 }

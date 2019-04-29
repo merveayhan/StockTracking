@@ -28,7 +28,10 @@ namespace StockTracking.Model.Option
         public string XSmallUserImage { get; set; }
         public string CruptedUserImage { get; set; }
 
-        public virtual List<Sale> Sales { get; set; }
+     
+
+        //public Guid SaleID { get; set; }
+        //public virtual Sale Sale { get; set; }
 
     }
 }

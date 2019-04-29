@@ -13,22 +13,29 @@ namespace StockTracking.Map.Option
         public ProductMap()
         {
             ToTable("dbo.Products");
-            Property(x => x.ProductName).HasMaxLength(50).IsRequired();
-            Property(x => x.Quantity).IsRequired();
-            Property(x => x.Kdv).HasMaxLength(50).IsRequired();
-            Property(x => x.FirstPrice).IsRequired();
-            Property(x => x.SalePrice).IsRequired();
-            Property(x => x.AddDate).IsRequired();
-            Property(x => x.UserImage).IsRequired();
-            Property(x => x.XSmallUserImage).IsRequired();
-            Property(x => x.CruptedUserImage).IsRequired();
+            Property(x => x.ProductName).HasMaxLength(50).IsOptional();
+            Property(x => x.Quantity).IsOptional();
+            Property(x => x.Kdv).HasMaxLength(50).IsOptional();
+            Property(x => x.FirstPrice).IsOptional();
+            Property(x => x.SalePrice).IsOptional();
+            Property(x => x.AddDate).HasColumnType("datetime2").IsOptional();
+            Property(x => x.ImagePath).IsOptional();
+            Property(x => x.UserImage).IsOptional();
+            Property(x => x.XSmallUserImage).IsOptional();
+            Property(x => x.CruptedUserImage).IsOptional();
 
             HasRequired(x => x.Category)
                .WithMany(x => x.Products)
                .HasForeignKey(x => x.CategoryID)
-               .WillCascadeOnDelete(true);//katerorisi silinirse ürün silinsin
+               .WillCascadeOnDelete(true); //katerorisi silinirse ürün silinsin
 
-            HasMany(x => x.Sales).WithRequired(x => x.Product).HasForeignKey(x => x.ProductID);
+
+            //HasRequired(x => x.Sale)
+            //   .WithMany(x => x.Products)
+            //   .HasForeignKey(x => x.SaleID)
+            //   .WillCascadeOnDelete(true); //katerorisi silinirse ürün silinsin
+
+           
 
         }
     }

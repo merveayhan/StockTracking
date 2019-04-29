@@ -1,4 +1,5 @@
-﻿using StockTracking.Model.Option;
+﻿
+using StockTracking.Model.Option;
 using StockTracking.Service.BaseService;
 using System;
 using System.Collections.Generic;

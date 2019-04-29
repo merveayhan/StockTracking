@@ -17,7 +17,7 @@ namespace StockTracking.DAL.Context
     {
         public ProjectContext()
         {
-            Database.Connection.ConnectionString = "Server=DESKTOP-360Q214\\SQLSERVER2017EXP;Database=StockTracking;uid=mrv;pwd=123456;";
+            Database.Connection.ConnectionString = "Server=DESKTOP-360Q214\\SQLSERVER2017EXP;Database=StockTracking;uid=mrv;pwd=123;";
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

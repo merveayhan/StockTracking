@@ -25,8 +25,12 @@ namespace StockTracking.Map.Option
             Property(x => x.XSmallUserImage).IsOptional();
             Property(x => x.CruptedUserImage).IsOptional();
 
-            HasMany(x => x.Sales).WithRequired(x => x.AppUser).HasForeignKey(x => x.AppUserID);
+            //HasRequired(x => x.Sale)
+            // .WithMany(x => x.AppUsers)
+            // .HasForeignKey(x => x.SaleID)
+            // .WillCascadeOnDelete(true); //katerorisi silinirse ürün silinsin
 
+           
         }
     }
 }

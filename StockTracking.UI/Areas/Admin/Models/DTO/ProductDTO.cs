@@ -1,32 +1,25 @@
-﻿using StockTracking.Core.Entity;
+﻿using StockTracking.Model.Option;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace StockTracking.Model.Option
-{ 
-    public class Product:CoreEntity
+namespace StockTracking.UI.Areas.Admin.Models.DTO
+{
+    public class ProductDTO
     {
+        public Guid ID { get; set; }
         public string ProductName { get; set; }
         public short? Quantity { get; set; }
         public string Kdv { get; set; }
         public decimal? FirstPrice { get; set; }
         public decimal? SalePrice { get; set; }
-        public DateTime? AddDate { get; set; }
+        public DateTime AddDate { get; set; }
         public string ImagePath { get; set; }
         public string UserImage { get; set; }
         public string XSmallUserImage { get; set; }
         public string CruptedUserImage { get; set; }
 
-        public Guid CategoryID { get; set; }
-        public virtual Category Category { get; set; }
-
-      
-        //public Guid SaleID { get; set; }
-        //public virtual Sale Sale { get; set; }
-
-
+        public List<Category> Categories { get; set; }
     }
 }

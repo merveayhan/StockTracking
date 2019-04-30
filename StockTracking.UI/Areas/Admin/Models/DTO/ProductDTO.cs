@@ -16,9 +16,9 @@ namespace StockTracking.UI.Areas.Admin.Models.DTO
         public string SalePrice { get; set; }
         public DateTime? AddDate { get; set; }
         public string ImagePath { get; set; }
-        public string UserImage { get; set; }
-        public string XSmallUserImage { get; set; }
-        public string CruptedUserImage { get; set; }
+        //public string UserImage { get; set; }
+        //public string XSmallUserImage { get; set; }
+        //public string CruptedUserImage { get; set; }
 
         public Guid CategoryID { get; set; }
     }

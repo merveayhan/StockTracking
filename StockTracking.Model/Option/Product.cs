@@ -17,9 +17,7 @@ namespace StockTracking.Model.Option
         public DateTime? AddDate { get; set; }
         public string ImagePath { get; set; }
 
-        public string UserImage { get; set; }
-        public string XSmallUserImage { get; set; }
-        public string CruptedUserImage { get; set; }
+        
 
         public Guid CategoryID { get; set; }
         public virtual Category Category { get; set; }

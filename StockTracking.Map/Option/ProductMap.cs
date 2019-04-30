@@ -20,9 +20,9 @@ namespace StockTracking.Map.Option
             Property(x => x.SalePrice).IsOptional();
             Property(x => x.AddDate).HasColumnType("datetime2").IsOptional();
             Property(x => x.ImagePath).IsOptional();
-            Property(x => x.UserImage).IsOptional();
-            Property(x => x.XSmallUserImage).IsOptional();
-            Property(x => x.CruptedUserImage).IsOptional();
+            //Property(x => x.UserImage).IsOptional();
+            //Property(x => x.XSmallUserImage).IsOptional();
+            //Property(x => x.CruptedUserImage).IsOptional();
 
             HasRequired(x => x.Category)
                .WithMany(x => x.Products)

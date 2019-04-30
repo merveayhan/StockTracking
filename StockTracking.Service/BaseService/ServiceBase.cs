@@ -51,7 +51,7 @@ namespace StockTracking.Service.BaseService
 
         public List<T> GetActive()
         {
-            return context.Set<T>().Where(x => x.Status == Core.Enum.Status.Active).ToList();
+            return context.Set<T>().Where(x => x.Status == Core.Enum.Status.Active ||  x.Status == Core.Enum.Status.Updated).ToList();
         }
 
         public List<T> GetAll()

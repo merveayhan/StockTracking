@@ -16,7 +16,7 @@ namespace StockTracking.Map.Option
             Property(x => x.CategoryName).IsOptional();
             Property(x => x.Description).IsOptional();
 
-            HasMany(x => x.Products).WithRequired(x => x.Category).HasForeignKey(x => x.CategoryID);
+            HasMany(x => x.Products).WithRequired(x => x.Category).HasForeignKey(x => x.CategoryID).WillCascadeOnDelete(false);
         }
     }
 }

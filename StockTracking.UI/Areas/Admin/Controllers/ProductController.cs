@@ -73,9 +73,9 @@ namespace StockTracking.UI.Areas.Admin.Controllers
             model.FirstPrice = product.FirstPrice;
             model.SalePrice = product.SalePrice;
             model.Categories = categories;
-            
-       
-       
+
+
+
             model.UserImage = product.UserImage;
             model.XSmallUserImage = product.XSmallUserImage;
             model.CruptedUserImage = product.CruptedUserImage;
@@ -125,9 +125,9 @@ namespace StockTracking.UI.Areas.Admin.Controllers
             update.Kdv = data.Kdv;
             update.FirstPrice = data.FirstPrice;
             update.SalePrice = data.SalePrice;
-            update.AddDate = data.AddDate;            
-            update.ImagePath = data.ImagePath;
-            
+            update.AddDate = data.AddDate;
+            // update.ImagePath = data.ImagePath;
+
             _productService.Update(update);
 
             return Redirect("/Admin/Product/List");

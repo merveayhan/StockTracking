@@ -10,5 +10,6 @@ namespace StockTracking.UI.Areas.Admin.Models.DTO
         public Guid ID { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
+
     }
 }

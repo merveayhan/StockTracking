@@ -20,6 +20,6 @@ namespace StockTracking.UI.Areas.Admin.Models.DTO
         public string XSmallUserImage { get; set; }
         public string CruptedUserImage { get; set; }
 
-        public List<Category> Categories { get; set; }
+        public Guid CategoryID { get; set; }
     }
 }

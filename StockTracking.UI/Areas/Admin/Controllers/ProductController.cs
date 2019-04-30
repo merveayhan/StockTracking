@@ -1,6 +1,7 @@
 ﻿using StockTracking.Model.Option;
 using StockTracking.Service.Option;
 using StockTracking.UI.Areas.Admin.Models.DTO;
+using StockTracking.UI.Areas.Admin.Models.VM;
 using StockTracking.Utility;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,13 @@ namespace StockTracking.UI.Areas.Admin.Controllers
 
         public ActionResult Add()
         {
-            List<Category> model = _categoryService.GetActive();
+            //List<Category> model = _categoryService.GetActive();
+            //return View(model);
+            ProductVM model = new ProductVM()
+            {
+                Categories = _categoryService.GetActive(),          
+            };
+
             return View(model);
         }
 
@@ -33,18 +40,23 @@ namespace StockTracking.UI.Areas.Admin.Controllers
 
             UploadedImagePaths = ImageUploader.UploadSingleImage(ImageUploader.OriginalProfileImagePath, Image, 1);
 
-            data.UserImage = UploadedImagePaths[0];
+            data.ImagePath = UploadedImagePaths[0];
 
-            if (data.UserImage == "0" || data.UserImage == "1" || data.UserImage == "2")
+            if (data.ImagePath == "0" || data.ImagePath == "1" || data.ImagePath == "2")
             {
-                data.UserImage = ImageUploader.DefaultProfileImagePath;
-                data.XSmallUserImage = ImageUploader.DefaultXSmallProfileImage;
-                data.CruptedUserImage = ImageUploader.DefaulCruptedProfileImage;
+                data.ImagePath = ImageUploader.DefaultProfileImagePath;
+                data.ImagePath = ImageUploader.DefaultXSmallProfileImage;
+                data.ImagePath = ImageUploader.DefaulCruptedProfileImage;
+                //data.UserImage = ImageUploader.DefaultProfileImagePath;
+                //data.XSmallUserImage = ImageUploader.DefaultXSmallProfileImage;
+                //data.CruptedUserImage = ImageUploader.DefaulCruptedProfileImage;
             }
             else
             {
-                data.XSmallUserImage = UploadedImagePaths[1];
-                data.CruptedUserImage = UploadedImagePaths[2];
+                data.ImagePath = UploadedImagePaths[1];
+                data.ImagePath = UploadedImagePaths[2];
+                //data.XSmallUserImage = UploadedImagePaths[1];
+                //data.CruptedUserImage = UploadedImagePaths[2];
             }
 
             data.Status = Core.Enum.Status.Active;
@@ -63,22 +75,23 @@ namespace StockTracking.UI.Areas.Admin.Controllers
 
         public ActionResult Update(Guid id)
         {
-            List<Category> categories = _categoryService.GetActive();
+           
             Product product = _productService.GetByID(id);
-            ProductDTO model = new ProductDTO();
-            model.ID = product.ID;
-            model.ProductName = product.ProductName;
-            model.Quantity = product.Quantity;
-            model.Kdv = product.Kdv;
-            model.FirstPrice = product.FirstPrice;
-            model.SalePrice = product.SalePrice;
-            model.Categories = categories;
+            ProductVM model = new ProductVM();
+            model.Product.ID = product.ID;
+            model.Product.ProductName = product.ProductName;
+            model.Product.Quantity = product.Quantity;
+            model.Product.Kdv = product.Kdv;
+            model.Product.FirstPrice = product.FirstPrice;
+            model.Product.SalePrice = product.SalePrice;
+            model.Product.AddDate = product.AddDate;
 
+            List<Category> categories = _categoryService.GetActive();
+            model.Categories =categories;
 
-
-            model.UserImage = product.UserImage;
-            model.XSmallUserImage = product.XSmallUserImage;
-            model.CruptedUserImage = product.CruptedUserImage;
+            //model.UserImage = product.UserImage;
+            //model.XSmallUserImage = product.XSmallUserImage;
+            //model.CruptedUserImage = product.CruptedUserImage;
 
             return View(model);
         }
@@ -91,33 +104,40 @@ namespace StockTracking.UI.Areas.Admin.Controllers
 
             UploadedImagePaths = ImageUploader.UploadSingleImage(ImageUploader.OriginalProfileImagePath, Image, 1);
 
-            data.UserImage = UploadedImagePaths[0];
+            data.ImagePath = UploadedImagePaths[0];
 
 
             Product update = _productService.GetByID(data.ID);
 
-            if (data.UserImage == "0" || data.UserImage == "1" || data.UserImage == "2")
+            if (data.ImagePath == "0" || data.ImagePath == "1" || data.ImagePath == "2")
             {
 
-                if (update.UserImage == null || update.UserImage == ImageUploader.DefaultProfileImagePath)
+                if (update.ImagePath == null || update.ImagePath == ImageUploader.DefaultProfileImagePath)
                 {
-                    update.UserImage = ImageUploader.DefaultProfileImagePath;
-                    update.XSmallUserImage = ImageUploader.DefaultXSmallProfileImage;
-                    update.CruptedUserImage = ImageUploader.DefaulCruptedProfileImage;
+                    update.ImagePath = ImageUploader.DefaultProfileImagePath;
+                    update.ImagePath = ImageUploader.DefaultXSmallProfileImage;
+                    update.ImagePath = ImageUploader.DefaulCruptedProfileImage;
+                    //update.UserImage = ImageUploader.DefaultProfileImagePath;
+                    //update.XSmallUserImage = ImageUploader.DefaultXSmallProfileImage;
+                    //update.CruptedUserImage = ImageUploader.DefaulCruptedProfileImage;
                 }
                 else
                 {
-                    update.UserImage = update.UserImage;
-                    update.XSmallUserImage = update.XSmallUserImage;
-                    update.CruptedUserImage = update.CruptedUserImage;
+                    update.ImagePath = data.ImagePath;
+                    //update.UserImage = update.UserImage;
+                    //update.UserImage = update.XSmallUserImage;
+                    //update.UserImage = update.CruptedUserImage;
                 }
 
             }
             else
             {
-                update.UserImage = UploadedImagePaths[0];
-                update.XSmallUserImage = UploadedImagePaths[1];
-                update.CruptedUserImage = UploadedImagePaths[2];
+                update.ImagePath = UploadedImagePaths[0];
+                update.ImagePath = UploadedImagePaths[1];
+                update.ImagePath = UploadedImagePaths[2];
+                //update.UserImage = UploadedImagePaths[0];
+                //update.UserImage = UploadedImagePaths[1];
+                //update.UserImage = UploadedImagePaths[2];
             }
 
             update.ProductName = data.ProductName;
@@ -126,9 +146,9 @@ namespace StockTracking.UI.Areas.Admin.Controllers
             update.FirstPrice = data.FirstPrice;
             update.SalePrice = data.SalePrice;
             update.AddDate = data.AddDate;
-            // update.ImagePath = data.ImagePath;
+            update.ImagePath = data.ImagePath;
 
-            _productService.Update(update);
+            _productService.Update(update) ;
 
             return Redirect("/Admin/Product/List");
 

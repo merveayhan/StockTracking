@@ -60,22 +60,22 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="@Session["MemberImagePath"]" class="user-image" alt="User Image">
+                                <img src="@Session["ImagePath"]" class="user-image" alt="User Image">
                                 <span class="hidden-xs">
                                     @if (User.Identity.IsAuthenticated)
                                     {
-                                        @Session["MemberFullName"]
+                                        @Session["FullName"]
                                     }
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="@Session["MemberImagePath"]" class="img-circle" alt="User Image">
+                                    <img src="@Session["ImagePath"]" class="img-circle" alt="User Image">
                                     <p>
                                         @if (User.Identity.IsAuthenticated)
                                         {
-                                            @Session["MemberFullName"]
+                                            @Session["FullName"]
                                         }
                                     </p>
                                 </li>
@@ -85,8 +85,11 @@
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
                                     <div class="pull-right">
-                                        <a href="/Admin/Account/Logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="/Account/LogOut" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -105,10 +108,10 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="@Session["MemberImagePath"]" class="img-circle" alt="User Image">
+                        <img src="@Session["ImagePath"]" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>@Session["MemberFullName"]</p>
+                        <p>@Session["FullName"]</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -129,14 +132,16 @@
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-book"></i> <span>Category Transactions</span>
+                            <i class="fa fa-sitemap"></i> <span>Category Transactions</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/Admin/Category/Add"><i class="fa fa-circle-o"></i> Add Category</a></li>
-                            <li><a href="/Admin/Category/List"><i class="fa fa-circle-o"></i> List of Categories</a></li>
+                            <li><a href="/Admin/Category/Add"><i class="fa fa-plus-square-o"></i>Category Add </a></li>
+                            <li><a href="/Admin/Category/List"><i class="fa fa-server"></i>Category List</a></li>
+                            <li><a href="/Admin/Category/List"><i class="fa fa-book"></i>Category Update</a></li>
+                            <li><a href="/Admin/Category/List"><i class="fa fa-trash"></i> Category Delete</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -147,20 +152,24 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/Admin/AppUser/Add"><i class="fa fa-circle-o"></i> Add User</a></li>
-                            <li><a href="/Admin/AppUser/List"><i class="fa fa-circle-o"></i> List of Users</a></li>
+                            <li><a href="/Admin/AppUser/Add"><i class="fa fa-plus-square-o"></i>User Add</a></li>
+                            <li><a href="/Admin/AppUser/List"><i class="fa fa-server"></i> User List</a></li>
+                            <li><a href="/Admin/AppUser/List"><i class="fa fa-book"></i> User Update</a></li>
+                            <li><a href="/Admin/AppUser/List"><i class="fa fa-trash"></i>User Delete</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-folder"></i> <span>Article Transactions</span>
+                            <i class="fa fa-sitemap"></i> <span>Product Transactions</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/Admin/Article/Add"><i class="fa fa-circle-o"></i> Add Article</a></li>
-                            <li><a href="/Admin/Article/List"><i class="fa fa-circle-o"></i> List of Articles</a></li>
+                            <li><a href="/Admin/Product/Add"><i class="fa fa-plus-square-o"></i>Product Add</a></li>
+                            <li><a href="/Admin/Product/List"><i class="fa fa-server"></i>Product List</a></li>
+                            <li><a href="/Admin/Product/List"><i class="fa fa-book"></i>Product Update </a></li>
+                            <li><a href="/Admin/Product/List"><i class="fa fa-trash"></i>Product Delete</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -182,3 +191,5 @@
     </div>
 </body>
 </html>
+
+

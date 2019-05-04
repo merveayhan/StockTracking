@@ -86,7 +86,7 @@ namespace StockTracking.Service.BaseService
         {
             T item = GetByID(id);
             item.Status = Core.Enum.Status.Deleted;
-            Update(item);
+            Update(item);          
         }
 
         public void Remove(T item)

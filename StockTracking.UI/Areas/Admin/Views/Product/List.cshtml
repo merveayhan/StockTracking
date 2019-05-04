@@ -5,20 +5,18 @@
 }
 @model List<StockTracking.Model.Option.Product>
 
+<script src="~/Content/script/dataTables.bootstrap.min.js"></script>
+<script src="~/Content/script/jquery.dataTables.min.js"></script>
 <link href="~/Content/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<script src="~/Content/scripts/jquery.dataTables.min.js"></script>
-<script src="~/Content/scripts/dataTables.bootstrap.min.js"></script>
+
 <section class="content-header">
-    <h1>
-        Product Transactions
-    </h1>
     <ol class="breadcrumb">
-        <li><a href="/Admin/Home/AdminIndex"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/Admin/Home/Index"><i class="fa fa-home"></i> Home</a></li>
         <li><a href="/Admin/Product/Add">Add Product</a></li>
-        <li><a href="/Admin/Product/List">List of Product</a></li>
+        <li class="active">Product List</li>
     </ol>
 </section>
-
+<br />
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
@@ -37,8 +35,8 @@
                                 <th>First Price</th>
                                 <th>Sale Price</th>
                                 <th>Add Date</th>
-                                <th>Product Photo</th>
                                 <th>Category Name</th>
+                                <td>Image</td>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>
@@ -46,20 +44,21 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>@item.ProductName</td>
-                                    <td>@item.Quantity</td>
-                                    <td>@item.Kdv</td>
-                                    <td>@item.FirstPrice</td>
-                                    <td>@item.SalePrice</td>
-                                    <td>@item.AddDate</td>
-                                    <td><img src="@item.ImagePath" /></td>
-                                    <td>@item.Category.CategoryName</td>
-
-
-                                    <td><a href="/Admin/Product/Update/@item.ID" type="button" class="btn btn block btn-warning btn-flat">Update</a></td>
-                                    <td><a href="/Admin/Product/Delete/@item.ID" type="button" class="btn btn-block btn-danger btn-flat">Delete</a></td>
-                                </tr>
+                            <tr>
+                                <td>@item.ProductName</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Kdv</td>
+                                <td>@item.FirstPrice</td>
+                                <td>@item.SalePrice</td>
+                                <td>@item.AddDate</td>
+                                <td>@item.Category.CategoryName</td>
+                               
+                                <td>
+                                    <img src="@item.ImagePath" style="display:block" width="75" height="75" />
+                                </td>
+                                <td><a href="/Admin/Product/Update/@item.ID" type="button" class="btn btn-block btn-warning">Update</a></td>
+                                <td><a href="/Admin/Product/Delete/@item.ID" type="button" class="btn btn-block btn-danger">Delete</a></td>
+                            </tr>
                             }
                         </tbody>
                     </table>
@@ -68,7 +67,6 @@
         </div>
     </div>
 </section>
-
 <script>
     $(function () {
         $('#example1').DataTable()
@@ -80,7 +78,7 @@
             'info': true,
             'autoWidth': false
         })
-    })</script>
-
+    })
+</script>
 
 

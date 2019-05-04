@@ -72,10 +72,11 @@ namespace StockTracking.UI.Areas.Admin.Controllers
             model.Password = user.Password;
             model.Address = user.Address;
             model.PhoneNumber = user.PhoneNumber;
+            model.Role = user.Role;
             model.UserImage = user.UserImage;
             model.XSmallUserImage = user.XSmallUserImage;
             model.CruptedUserImage = user.CruptedUserImage;
-            model.Role = user.Role;
+         
 
             return View(model);
 

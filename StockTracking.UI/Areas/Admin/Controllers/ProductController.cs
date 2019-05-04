@@ -23,8 +23,7 @@ namespace StockTracking.UI.Areas.Admin.Controllers
 
         public ActionResult Add()
         {
-            //List<Category> model = _categoryService.GetActive();
-            //return View(model);
+          
             ProductVM model = new ProductVM()
             {
                 Categories = _categoryService.GetActive(),          
@@ -47,20 +46,18 @@ namespace StockTracking.UI.Areas.Admin.Controllers
                 data.ImagePath = ImageUploader.DefaultProfileImagePath;
                 data.ImagePath = ImageUploader.DefaultXSmallProfileImage;
                 data.ImagePath = ImageUploader.DefaulCruptedProfileImage;
-                //data.UserImage = ImageUploader.DefaultProfileImagePath;
-                //data.XSmallUserImage = ImageUploader.DefaultXSmallProfileImage;
-                //data.CruptedUserImage = ImageUploader.DefaulCruptedProfileImage;
+                
             }
             else
-            {             
+            {
+              
                 data.ImagePath = UploadedImagePaths[1];
                 data.ImagePath = UploadedImagePaths[2];
-                //data.XSmallUserImage = UploadedImagePaths[1];
-                //data.CruptedUserImage = UploadedImagePaths[2];
+              
             }
 
             data.Status = Core.Enum.Status.Active;
-
+         
             _productService.Add(data);
 
             return Redirect("/Admin/Product/List");
@@ -131,17 +128,17 @@ namespace StockTracking.UI.Areas.Admin.Controllers
                 update.ImagePath = UploadedImagePaths[2];
                
             }
+            Product product = _productService.GetByID(data.ID);
+            product.ProductName = data.ProductName;
+            product.Quantity = data.Quantity;
+            product.Kdv = data.Kdv;
+            product.FirstPrice = data.FirstPrice;
+            product.SalePrice = data.SalePrice;
+            product.AddDate = data.AddDate;
+            product.ImagePath = data.ImagePath;
+            product.CategoryID = data.CategoryID;
 
-            update.ProductName = data.ProductName;
-            update.Quantity = data.Quantity;
-            update.Kdv = data.Kdv;
-            update.FirstPrice = data.FirstPrice;
-            update.SalePrice = data.SalePrice;
-            update.AddDate = data.AddDate;
-            update.ImagePath = data.ImagePath;
-            update.CategoryID = data.CategoryID;
-
-            _productService.Update(update) ;
+            _productService.Update(product) ;
 
             return Redirect("/Admin/Product/List");
 

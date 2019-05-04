@@ -60,6 +60,14 @@ namespace StockTracking.UI.Areas.Admin.Controllers
             _categoryService.Remove(id);
             return Redirect("/Admin/Category/List");
         }
+        //public JsonResult Delete(Guid id)
+        //{
+        //    Category category = _categoryService.GetByID(id) ;
+        //    category.Status = StockTracking.Core.Enum.Status.Deleted;
+        //    category.ModifiedDate = DateTime.Now;
+        //    _categoryService.Remove(id);
+        //    return Json("/Admin/Category/List");
+        //}
 
     }
 }

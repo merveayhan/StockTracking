@@ -29,9 +29,11 @@ namespace StockTracking.Map.Option
             //HasRequired(x => x.Sale)
             // .WithMany(x => x.AppUsers)
             // .HasForeignKey(x => x.SaleID)
-            // .WillCascadeOnDelete(true); //katerorisi silinirse ürün silinsin
+            // .WillCascadeOnDelete(false); 
 
-           
+            HasMany(x => x.Sales).WithRequired(x => x.AppUser).HasForeignKey(x => x.AppUserID).WillCascadeOnDelete(false);
+
+
         }
     }
 }

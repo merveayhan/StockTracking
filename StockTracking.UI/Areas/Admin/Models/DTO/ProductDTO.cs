@@ -10,10 +10,10 @@ namespace StockTracking.UI.Areas.Admin.Models.DTO
     {
         public Guid ID { get; set; }
         public string ProductName { get; set; }
-        public string Quantity { get; set; }
-        public string Kdv { get; set; }
-        public string FirstPrice { get; set; }
-        public string SalePrice { get; set; }
+        public int Quantity { get; set; }
+        public decimal Kdv { get; set; }
+        public decimal FirstPrice { get; set; }
+        public decimal SalePrice { get; set; }
         public DateTime? AddDate { get; set; }
         public string ImagePath { get; set; }
        

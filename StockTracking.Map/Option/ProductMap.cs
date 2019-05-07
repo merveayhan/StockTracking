@@ -14,8 +14,8 @@ namespace StockTracking.Map.Option
         {
             ToTable("dbo.Products");
             Property(x => x.ProductName).HasMaxLength(50).IsOptional();
-            Property(x => x.Quantity).HasMaxLength(50).IsOptional();
-            Property(x => x.Kdv).HasMaxLength(50).IsOptional();
+            Property(x => x.Quantity).IsOptional();
+            Property(x => x.Kdv).IsOptional();
             Property(x => x.FirstPrice).IsOptional();
             Property(x => x.SalePrice).IsOptional();
             Property(x => x.AddDate).HasColumnType("datetime2").IsOptional();
@@ -29,11 +29,12 @@ namespace StockTracking.Map.Option
                .HasForeignKey(x => x.CategoryID)
                .WillCascadeOnDelete(false); //katerorisi silinirse ürün silinsin
 
+            HasMany(x => x.Sales).WithRequired(x => x.Product).HasForeignKey(x => x.ProductID).WillCascadeOnDelete(false);
 
             //HasRequired(x => x.Sale)
             //   .WithMany(x => x.Products)
             //   .HasForeignKey(x => x.SaleID)
-            //   .WillCascadeOnDelete(true); //katerorisi silinirse ürün silinsin
+            //   .WillCascadeOnDelete(false);
 
 
 
